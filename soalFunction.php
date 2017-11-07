@@ -37,25 +37,31 @@ echo "4. There are <strong>".preg_match_all('/[aeiou]/i',$string,$matches)." vow
 
 echo "</br>5. There is ".str_word_count($string)." Word";
 
+function futureInvest($amount, $monthRate,$thn){
+	return $amount*pow(1+$monthRate,$thn*12);
+}
 function jumlahnya(){
-	echo "</br>5.";
+	echo "</br>6.";
 	$invest=1000;
-	$bunga=10/100;
+	$rate=10*0.01;
 	$thn=5;
-	for($i=0;$i<$thn;$i++){
-		$bung=$invest * $bunga;
-		$invest=$bung+$invest;
-		echo"$i => $invest ,";
+	echo "</br>Years            Future Value</br>";
+	for($i=1;$i<$thn+1;$i++){
+		
+		echo "<pre>$i    ".futureInvest($invest,$rate/12,$i).", </pre> </br>";
 	}
 
 }
 jumlahnya();
-echo"</br> 6. ";
-$tot=0;
-for ($i=0; $i < 10; $i++) { 
-        for($j=0;$j<20;$j++){
-        	echo " ".utf8_encode( chr($tot) );
-        	$tot++;
+echo"</br> 7. </br>";
+function printchar($char1,$char2,$n){
+	for ($ctr = 1; $char1 <= $char2; $ctr++, $char1++) {
+           // echo "$char1 "."";
+            echo chr($char1)." ";
+            if ($ctr % $n == 0){
+            	echo "</br>";
+            } 
+           
         }
-        echo"</br>";
-    }
+}
+echo printchar(ord("("),ord("z"),20);
